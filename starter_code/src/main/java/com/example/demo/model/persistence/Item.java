@@ -13,8 +13,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "item")
 public class Item {
 
@@ -22,19 +24,19 @@ public class Item {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@JsonProperty
 	private Long id;
-	
+
 	@Column(nullable = false)
 	@JsonProperty
 	private String name;
-	
+
 	@Column(nullable = false)
 	@JsonProperty
 	private BigDecimal price;
-	
+
 	@Column(nullable = false)
 	@JsonProperty
 	private String description;
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,39 +61,4 @@ public class Item {
 			return false;
 		return true;
 	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public BigDecimal getPrice() {
-		return price;
-	}
-
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
-	
-	
 }
